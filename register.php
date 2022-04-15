@@ -1,20 +1,19 @@
 <?php
-$dbHost="localhost";
-$dbName="loginsystem";
-$dbChar="utf8";
-$dbUser="root";
-$dbPass="";
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='';
+$db='loginsystem';
 
-$conn = mysqli_connect($dbHost,$dbName,$dbChar, $dbUser,$dbPass);
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $db);
 
-$username = $_POST('username');
-$usermail = $_POST('usermail');
-$userpass = $_POST('userpass');
+$username = $_POST['username']; 
+$usermail = $_POST['usermail'];
+$userpass = $_POST['userpass'];
 
-$sql = "INSERT INTO data (username, usermail, userpass) VALUES ('$username', '$usermail', '$userpass')";
+$sql = "INSERT into data (username, usermail, userpass) VALUES ('$username', '$usermail', '$userpass')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Data Stored";
+    echo "Data Stored!";
 } else {
     echo "Something Went Wrong";
 }
